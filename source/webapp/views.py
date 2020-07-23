@@ -25,3 +25,15 @@ def to_do_create_view(request):
         return render(request, 'to_do_view.html', context)
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
+
+
+def delete_to_do(request):
+    if request.method == "GET":
+        return render(request, 'del_to_do.html')
+    elif request.method == 'POST':
+        description = request.POST.get("description")
+        article = Article.objects.get(description=description)
+        context = {'article': article.delete()}
+        return render(request, 'delet.html', context)
+    else:
+        return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])

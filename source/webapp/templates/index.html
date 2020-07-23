@@ -6,21 +6,40 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0,
 maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello</title>
+    <title>To Do list</title>
+        <style type="text/css">
+
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                color: #444444;
+            }
+
+            .container {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 900px;
+
+            }
+
+        </style>
 
 </head>
 <body>
-<div class="container">
-    <h1>To Do list</h1>
-    {% for article in articles %}
-        <h2>{{ article.description }} | {{ article.status }} </h2>
-        <hr>
-    {% endfor %}
-    <p><a href="to_do/add/">Add to do list</a></p>
+    <div class="container">
+        <h1 style="color: #5bbc2e; text-transform: uppercase; font-size: 50px; font-weight: 800;">To Do list</h1>
+        {% for article in articles %}
+            <h2 style="color: #5bbc2e;">{{ article.description }} |<span style="color: #007bff;"> {{ article.status }}</span>|<span
+                    style="color: #007bff;"> {{ article.date }}</span></h2>
+            <hr>
+        {% endfor %}
+        <a href="to_do/add/" style="font-size: 20px; color: #007bff;text-decoration: none;"> Add to do list</a>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="application/javascript" src="js/bootstrap.bundle.js"></script>
+    <script type="application/javascript" src="js/bootstrap.bundle.js"></script>
 
-
-
-</div>
 </body>
 </html>

@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>View</title>
+        <style type="text/css">
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                color: #444444;
+            }
+            .container {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 900px;
+
+            }
+        </style>
 </head>
 <body>
+<div class="container">
     <h3>To do</h3>
     <h1>{{ article.description }}</h1>
     <p>{{ article.status }}</p>
     <p>{{ article.date }}</p>
     <p><a href="/">На главную</a></p>
+</div>
 </body>
 </html>

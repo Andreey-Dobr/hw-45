@@ -14,6 +14,7 @@ class Article(models.Model):
     description = models.TextField(max_length=3000, null=False, blank=False, verbose_name='Описание')
 
     status = models.CharField(max_length=25, choices=STATUS_CHOICES, default='new', verbose_name='статус')
+    date = models.CharField(max_length=25, null=False, blank=False, verbose_name='data')
 
     updated_at = models.DateTimeField(max_length=25, auto_now=True, verbose_name='Время изменения')
 

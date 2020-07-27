@@ -1,0 +1,53 @@
+[
+{
+  "model": "webapp.article",
+  "pk": 1,
+  "fields": {
+    "description": "description",
+    "textfield": "\u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0435 \u043e\u043f\u0438\u0441\u0430\u043d\u0435",
+    "status": "done",
+    "date": "2019-12-19",
+    "updated_at": "2020-07-23T11:11:18.691Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 2,
+  "fields": {
+    "description": "update",
+    "textfield": "\u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0435 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+    "status": "done",
+    "date": "2019-12-19",
+    "updated_at": "2020-07-23T11:11:14.344Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 3,
+  "fields": {
+    "description": "assasgasbdes",
+    "textfield": "\u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0435 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+    "status": "in_progress",
+    "date": "2019-12-19",
+    "updated_at": "2020-07-23T11:11:09.914Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$frYHcFl8f2wp$rGJkN6GVsMk5BUggyY/WzjSn3Y/3vuWY2FRy9hBJqGY=",
+    "last_login": "2020-07-23T08:48:07.254Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "a@mail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-23T08:46:41.278Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

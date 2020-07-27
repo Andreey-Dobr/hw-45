@@ -12,7 +12,7 @@ STATUS_CHOICES = [
 class Article(models.Model):
 
     description = models.TextField(max_length=3000, null=False, blank=False, verbose_name='Описание')
-
+    textfield = models.TextField(max_length=3000, null=False, blank=False, verbose_name='Подробное описание')
     status = models.CharField(max_length=25, choices=STATUS_CHOICES, default='new', verbose_name='статус')
     date = models.CharField(max_length=25, null=False, blank=False, verbose_name='data')
 

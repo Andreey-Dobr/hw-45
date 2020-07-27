@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View</title>
-        <style type="text/css">
-            body {
-                font-family: Arial, sans-serif;
-                font-size: 16px;
-                color: #444444;
-            }
-            .container {
-                margin: 0 auto;
-                width: 100%;
-                max-width: 900px;
+{% extends 'base.html' %}
 
-            }
-        </style>
-</head>
-<body>
-<div class="container">
+{% block title %}Ask List{% endblock %}
+
+{% block content %}
     <h1>Delete ask</h1>
 
     <form action="" method="post">
@@ -29,10 +13,11 @@
             <input type="text" name="description"/>
         </label><br/>
     <input type="submit" value="Send"/>
-    <p><a href="/">На главную</a></p>
     </form>
-</div>
+
+{% endblock %}
 
 
-</body>
-</html>
+
+
+

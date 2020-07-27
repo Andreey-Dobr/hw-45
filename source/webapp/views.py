@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from webapp.models import Article, STATUS_CHOICES
 from django.http import HttpResponseNotAllowed
+from django.urls import reverse
 
 
 def index_view(request):
@@ -11,6 +12,13 @@ def index_view(request):
     })
 
 
+def to_do_view(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+
+    context = {'article': article}
+    return render(request, 'to_do_view.html', context)
+
+
 def to_do_create_view(request):
     if request.method == "GET":
         return render(request, 'to_do_creat.html', context={
@@ -19,8 +27,9 @@ def to_do_create_view(request):
     elif request.method == 'POST':
         description = request.POST.get("description")
         status = request.POST.get('status')
+        full_description = request.POST.get("full_description")
         date = request.POST.get('date')
-        article = Article.objects.create(description=description, status=status, date=date)
+        article = Article.objects.create(description=description, status=status, date=date, full_description=full_description)
         context = {'article': article}
         return render(request, 'to_do_view.html', context)
     else:

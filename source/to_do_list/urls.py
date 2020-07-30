@@ -23,5 +23,5 @@ urlpatterns = [
     path('<int:pk>/', to_do_view, name='to_do_view'),
     path('to_do/add/', to_do_create_view, name='to_do_create'),
     path('<int:pk>/edit/', to_do_update_view, name='to_do_update'),
-    path('del/', delete_to_do, name='del')
+    path('<int:pk>/del/', delete_to_do, name='del')
 ]

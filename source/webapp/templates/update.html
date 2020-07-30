@@ -9,32 +9,11 @@
     <form method="POST" action="{% url "to_do_update" article.pk %}">
 
         {% csrf_token %}
-
-        <label>Description:</label><br/>
-        <label>
-            <input type="text" name="description" value="{{ article.description }}" />
-        </label><br/>
-
-        <label>Text Field:</label><br/>
-        <label>
-            <input type="text" name="full_description" value="{{ article.full_description }}" />
-        </label><br/>
-
-        <label for="id-status">Status:</label><br/>
-        <select name="status" id="id-status">
-            {% for value, label in status_choices %}
-                <option value="{{ value }}">{{ label }}</option>
-            {% endfor %}
-        </select><br/>
-
-
-        <label>Date:</label><br/>
-        <label>
-            <input name="date" type="date" value="{{ article.date }}"/>
-        </label><br/>
+        {% include 'partial/article_form.html' with button_text="Update" %}
+        <br/>
         <br/>
 
-        <p><input type="submit" value="Submit"></p>
+
 
     </form>
 

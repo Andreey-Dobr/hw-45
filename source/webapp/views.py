@@ -1,4 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+#from webapp.forms import AskForm
+
 from webapp.models import Article, STATUS_CHOICES
 from django.http import HttpResponseNotAllowed
 from django.urls import reverse
@@ -49,9 +52,29 @@ def to_do_create_view(request):
         date = request.POST.get('date')
         article = Article.objects.create(description=description, status=status, date=date, full_description=full_description)
         context = {'article': article}
-        return render(request, 'to_do_view.html', context)
+
+        errors = {}
+        if not description:
+            errors['description'] = 'Title should not be empty!'
+        elif len(description) > 200:
+            errors['description'] = 'Title should be 200 symbols or less!'
+        if not full_description:
+            errors['full_description'] = 'Author should not be empty!'
+        elif len(full_description) > 3000:
+            errors['full_description'] = 'Author should be 40 symbols or less!'
+
+
+        if len(errors) > 0:
+
+            return render(request, 'to_do_creat.html', context={
+                'errors': errors
+            })
+        else:
+            return render(request, 'to_do_view.html', context)
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
+
+
 
 
 def delete_to_do(request, pk):
@@ -66,12 +89,4 @@ def delete_to_do(request, pk):
 
 
 
-#    if request.method == "GET":
-#        return render(request, 'del_to_do.html')
-#    elif request.method == 'POST':
-#        description = request.POST.get("description")
-#        article = Article.objects.get(description=description)
-#        context = {'article': article.delete()}
-#        return render(request, 'delet.html', context)
-#    else:
-#        return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
+

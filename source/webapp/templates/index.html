@@ -4,11 +4,17 @@
 
 {% block content %}
     <h1>My First Blog!</h1>
+
     {% for article in articles %}
-        <h3>{{ article.title }}</h3>
-        <p><a href="{% url "to_do_view" article.pk %}">({{ article.description }} | {{ article.get_status_display }})
-        </a>
-        </p>
+         <span>{{ article.description }}   |</span>
+        <span>{{ article.get_status_display }}</span>
+
+        <p><a style="text-decoration: none;text-transform: uppercase;color:
+        #6a7dff" href="{% url "to_do_view" article.pk %}">more </a></p>
+        <p><a style="text-decoration: none;text-transform: uppercase;color:
+        #6a7dff" href="{% url "to_do_update" article.pk %}">Update </a></p>
+
+
     <hr>
 
     {% endfor %}

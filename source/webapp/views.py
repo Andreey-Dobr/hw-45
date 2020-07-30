@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Article, STATUS_CHOICES
 from django.http import HttpResponseNotAllowed
 from django.urls import reverse
@@ -17,6 +17,24 @@ def to_do_view(request, pk):
 
     context = {'article': article}
     return render(request, 'to_do_view.html', context)
+
+
+def to_do_update_view(request, pk):
+
+    article = get_object_or_404(Article, pk=pk)
+
+    if request.method == 'GET':
+        return render(request, 'update.html', context={'article': article,
+           'status_choices': STATUS_CHOICES
+           })
+
+    elif request.method == 'POST':
+        article.description = request.POST.get("description")
+        article.status = request.POST.get('status')
+        article.full_description = request.POST.get("full_description")
+        article.date = request.POST.get('date')
+        article.save()
+        return redirect('to_do_view', pk=article.pk)
 
 
 def to_do_create_view(request):

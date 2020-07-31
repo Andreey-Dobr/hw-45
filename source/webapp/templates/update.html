@@ -2,19 +2,19 @@
 
 {% block title %}Update Article{% endblock %}
 
+{% block menu %}
+    <li><a href="{% url 'to_do_view' article.pk %}">Отмена</a></li>
+{% endblock %}
+
+
 {% block content %}
 
-    <h1>Update Article</h1>
-
-    <form method="POST" action="{% url "to_do_update" article.pk %}">
-
-        {% csrf_token %}
-        {% include 'partial/article_form.html' with button_text="Update" %}
-        <br/>
-        <br/>
+    <h1>Update Ask</h1>
+    {% url "to_do_update" pk=article.pk as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Update' %}
+    <li><a href="{% url 'to_do_view' article.pk %}">Отмена</a></li>
 
 
 
-    </form>
 
 {% endblock %}

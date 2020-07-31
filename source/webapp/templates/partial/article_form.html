@@ -1,40 +1,8 @@
-{% csrf_token %}
-
-
-
-<label>Description*:</label><br/>
-{% if errors.description %}
-    <label><input type="text" name="description" value=""/>{{ article.description }}</label>
-    <p>{{ errors.description }}</p>
-{% else %}
-    <label><input  type="text" name="description" />{{ article.description }}</label>
-{% endif %}
-<br/>
-
-
-
-
-<label>Text Field*:</label><br/>
-{% if errors.full_description %}
-    <label><input type="text" name="full_description"/></label>
-    <p>{{ errors.full_description }}</p>
-{% else %}
-    <label><input type="text" name="full_description"/></label>
-{% endif %}
-<br/>
-
-
-<label for="id-status">Status:</label><br/>
-<select name="status" id="id-status">
-    {% for value, label in status_choices %}
-        <option value="{{ value }}">{{ label }}</option>
+<label for="{{ field.id_for_label }}">{{ field.label }}</label><br/>
+{{ field }}<br/>
+{% if field.errors %}
+    {% for error in field.errors %}
+        <p class="error">{{ error }}</p>
     {% endfor %}
-</select><br/>
-
-
-<label>Date:</label><br/>
-<label>
-    <input name="date" type="datetime-local"/>
-</label><br/>
+{% endif %}
 <br/>
-<p><input type="submit" value="{{ button_text }}"></p>
